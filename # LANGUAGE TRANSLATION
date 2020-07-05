@@ -1,0 +1,9 @@
+# LANGUAGE TRANSLATION
+
+from translate import Translator
+
+with open('files2.txt', mode='r') as file:
+    text=file.read()
+    translator= Translator(to_lang="ja")
+    translation = translator.translate(text)
+    print(translation)
