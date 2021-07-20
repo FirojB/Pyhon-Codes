@@ -1,4 +1,6 @@
+
 # Random Password Generator Project
+
 import random
 
 letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
@@ -21,4 +23,5 @@ random.shuffle(passwrod)
 
 # List to sentance conversion
 suffled = ''.join(passwrod)
+
 print("The password is : ", suffled)
