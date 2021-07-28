@@ -1,0 +1,14 @@
+def caesar (string, shift, choice):
+    new_string = ''
+    for c in string:
+        if choice == 'e':
+            new_string +=  chr(ord(c)+ shift)
+        else:
+            new_string += chr(ord(c) - shift)
+    print(f" The messages is : {new_string} ")
+
+choice = input("'E' for Encryption\n'D' for Decryption\n Please enter the choice:").lower()
+string = input("Enter message : ")
+shift = int(input("Enter the sift value : "))
+
+caesar(string, shift, choice)
