@@ -1,0 +1,64 @@
+'''
+Example to creating database in SQLITE using python
+'''
+import sqlite3
+# connect to database "school.db", if database is not exists then create it and then connect.
+connection = sqlite3.connect("school.db")
+
+# cursor will help to point a particular point in a table, or used to execute the query
+cursor = connection.cursor()
+
+# Check student table exists, if not then create it
+query = '''create table student(R_no INTEGER, Name VARCHAR(25), DoB DATE, Class VARCHAR(10), Gender VARCHAR(7));'''
+cursor.execute(query)
+# Check Teacher table exists, if not then create it
+query= '''create table teacher (ID INTEGER, Name VARCHAR(25), DoB DATE, Gender VARCHAR(7));'''
+cursor.execute(query)
+
+s_records = int(input(" How many entry for student(s) do you want to enter : "))
+if s_records!=0:
+    i = 0
+    while i<s_records:
+        print("entry for student ",i+1)
+        R_no = int(input("Enter the roll number : "))
+        Name =input("Enter the name : ")
+        DoB = input("Enter the Date of Birth : ")
+        Class = input("Enter the class : ")
+        Gender = input("Enter the gender(M/F) : ")
+        query = '''insert into student(R_no, Name, DoB, Class, Gender) values(R_no, Name, DoB, Class, Gender);'''
+        i+=1
+else:
+    print("No Student's record is updated")
+
+t_records = int(input("\nHow many entry for teacher(s)do you want to enter : "))
+if t_records!=0:
+    j = 0
+    while j<t_records:
+        print("Entry for teacher ",j+1)
+        ID = int(input("Enter the ID number : "))
+        Name =name =input("Enter the name : ")
+        DoB = input("Enter the Date of Birth : ")
+        Gender = input("Enter the gender(M/F) : ")
+        query = '''insert into teacher(ID, Name, DoB, Gender) values (ID, Name, DoB, Gender);'''
+        j+=1
+else:
+    print("No Teacher's record is updated")
+
+connection.close()
+
+
+'''
+# Reading from Database
+
+import sqlite3
+# connect to database "school.db" using path
+connection = sqlite3.connect("school.db")
+cursor = connection.cursor()
+
+query = '''select * from student where Gender = "M"'''
+cursor.execute(query)
+result = cursor.fetchall()
+print(result)
+connection.close()
+
+'''

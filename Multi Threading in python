@@ -1,0 +1,32 @@
+from threading import Thread
+import time
+
+
+def f1(num):
+    print("\n1. Hello from f1 with num: "+str(num))
+    time.sleep(5)
+    print("\n2. f1 is wokeup after 5 sec num: "+str(num))
+
+
+for i in range(5):
+    th=Thread(target=f1,args=(i,))
+    th.start()
+
+
+"""
+Output is
+
+Before sleep::
+1. Hello from f1 with num: 0
+1. Hello from f1 with num: 1
+1. Hello from f1 with num: 2
+1. Hello from f1 with num: 3
+1. Hello from f1 with num: 4
+>>> 
+Wokeup After 5 Seconds
+2. f1 is wokeup after 5 sec num: 1
+2. f1 is wokeup after 5 sec num: 0
+2. f1 is wokeup after 5 sec num: 3
+2. f1 is wokeup after 5 sec num: 4
+2. f1 is wokeup after 5 sec num: 2
+"""
